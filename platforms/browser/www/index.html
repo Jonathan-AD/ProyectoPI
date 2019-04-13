@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <link rel="stylesheet" href="icon/css/fontello.css" />
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Blank App</title>
+    <style>
+        body {
+            margin: 0px auto;
+            background: #efefef;
+            font-family: ‘Open Sans’, sans-serif;
+            color: #777;
+        }
+
+        a {
+            color: #f58220;
+            font-weight: 400;
+        }
+
+        span {
+            font-weight: 300;
+            color: #f58220;
+        }
+
+        .mlogin {
+            margin: 100px auto 0;
+        }
+
+        /*= CONTAINERS
+——————————————————–*/
+        .content-all {
+            width: 100%;
+            max-width: 1000px;
+            background: #4592af;
+            margin: auto;
+            margin-top: 80px;
+        }
+
+            .content-all label {
+                position: fixed;
+                width: 100%;
+                max-width: 1000px;
+                top: 14px;
+                font-size: 20px;
+                color: white;
+                z-index: 10;
+            }
+
+        .content-all h2{
+            position: fixed;
+            width: 100%;
+            max-width: 900px;
+            top: 20px;
+            font-size: 22px;
+            text-align: center;
+            color: white;
+        }
+
+
+        header {
+            width: 100%;
+            height: 60px;
+            position: fixed;
+            background: #4592af;
+            left: 0;
+            top: 0;
+        }
+
+        #check {
+            position: fixed;
+            width: 400px;
+            height: 100vh;
+            background: #4592af;
+            display: none;
+        }
+
+            #check:checked ~ .menu{
+                width: 400px;
+            }
+
+        .menu {
+            position: fixed;
+            top: 60px;
+            width: 0px;
+            height: 100vh;
+            background: #4592af;
+            transition: all 500ms cubic-bezier(1,0,0,1);
+            transition-timing-function: cubic-bezier(1,0,0,3);
+            overflow: hidden;
+        }
+
+        .menuC{
+
+        }
+
+
+        .menu li{
+            list-style: none;
+            padding: 14px;
+            color: white;
+            cursor: pointer;
+            transition: all 300ms;
+            display: block;
+            width: 400px;
+        }
+
+        .menu li:hover{
+            background: rgba(0,0,0,0.2);
+        }
+
+        .container {
+            padding: 25px 16px 25px 10px;
+            font-weight: 400;
+            overflow: hidden;
+            width: 350px;
+            height: auto;
+            background: #fff;
+            -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
+            -moz-box-shadow: 0 1px 3px rgba(0,0,0,.13);
+            box-shadow: 0 1px 3px rgba(0,0,0,.13);
+            border-radius: 10px;
+        }
+
+        #welcome {
+            width: 500px;
+            padding: 30px;
+            background: #fff;
+            margin: 160px auto 0;
+            -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
+            -moz-box-shadow: 0 1px 3px rgba(0,0,0,.13);
+            box-shadow: 0 1px 3px rgba(0,0,0,.13);
+        }
+
+        .container h1 {
+            color: #777;
+            text-align: center;
+            font-weight: 300;
+            border: 1px dashed #777;
+            margin-top: 13px;
+        }
+
+        .container label {
+            color: #777;
+            font-size: 14px;
+        }
+
+        #login {
+            width: 320px;
+            margin: auto;
+            padding-bottom: 15px;
+        }
+
+        .container form .input, .container input[type=text], .container input[type=password], .container input[type=e] {
+            background: #fbfbfb;
+            font-size: 24px;
+            line-height: 1;
+            width: 100%;
+            padding: 3px;
+            margin: 0 6px 5px 0;
+            outline: none;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+        }
+
+            .container form .input:focus {
+                border: 1px solid #f58220;
+                -webkit-box-shadow: 0 0 3px 0 rgba(245,130,32,0.75);
+                -moz-box-shadow: 0 0 3px 0 rgba(245,130,32,0.75);
+                box-shadow: 0 0 3px 0 rgba(245,130,32,0.75);
+            }
+
+        /*= BUTTONS
+——————————————————–*/
+
+        .button {
+            border: solid 1px #4592af;
+            background: #4592af;
+            background: -webkit-gradient(linear, left top, left bottom, from(#4592af), to(#4592af));
+            background: -moz-linear-gradient(top, #4592af, #4592af);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#4592af’, endColorstr=’#4592af′);
+            color: #fff;
+            padding: 7px 12px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            float: right;
+            
+        }
+
+            .button:hover {
+                background: #4592af;
+                background: -webkit-gradient(linear, left top, left bottom, from(#4592af), to(#4592af));
+                background: -moz-linear-gradient(top, #4592af, #4592af);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#4592af′, endColorstr=’#4592af′);
+            }
+
+        /*= FOOTER
+——————————————————–*/
+        .footer {
+            color: #777;
+            font-size: 12px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function enviar() {
+            var valor1 = document.getElementById("user").nodeValue;
+            var valor2 = document.getElementById("pass").value;
+
+            console.log(valor1);
+            if (valor1 == "" && valor2 == "") {
+                ons.notification.alert("Campo Vacio :)");
+            } else {
+                console.log(valor1);
+                xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        if (this.responseText == "0") {
+                            ons.notification.alert("Usuario no existe");
+                        }
+                        else {
+                            console.log(this.responseText);
+                            //var myNavigator = document.getElementById('myNavigator');
+                            //myNavigator.pushPage('page2.html').then(() => {
+                            //    //var cadena = this.responseText.slice(1, -1);
+                            //    var datos = JSON.parse(this.responseText);
+                            //    document.getElementById("recibeD").innerHTML = "Hola, " + datos.nombre;
+                            //    avatar.setAttribute('src', datos.imagen.replace(/ /g, "+"));
+                            //});
+                        }
+                    }
+                }
+                xmlhttp.open("POST", "https://dcc.000webhostapp.com/infoEstudiante.php?codigo=" + valor1 + "&nip=" + valor2, true);//con https funciona en escritorio, con http en moviles
+                xmlhttp.send();
+            }
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript" src="cordova.js"></script>
+    <ons-navigator animation="fade" swipeable id="myNavigator" page="page1.html"></ons-navigator>
+
+    <ons-template id="page1.html">
+        <ons-page id="pagina1">
+            <center>
+                <div class="container mlogin">
+                    <div id="login">
+                        
+                        <img src="imagen\logo_udg.png" width="160" height="180">
+                           <p>
+                                <label for="user_login">
+                                    Codigo de Alumno:<br />
+                                    <input type="text" name="codigo" id="user" class="input" size="20" />
+                                </label>
+                            </p>
+                            <p>
+                                <label for="user_pass">
+                                    Contraseña:<br />
+                                    <input type="password" name="nip" id="pass" class="input" size="20" />
+                                </label>
+                            </p>
+                            <p class="submit">
+                                <input type="submit" onclick="enviar()" class="button" value="Entrar"/>
+                            </p>
+                    </div>
+                </div>
+            </center>
+        </ons-page>
+    </ons-template>
+
+    <ons-template id="page2.html">
+        <ons-page id="pagina2">
+
+            <main>
+        <div class="content-all">
+            <header></header>
+            <input type="checkbox" id="check" />
+            <label for="check" class="icon-menu">
+                <ons-icon icon="ion-navicon" size="35px"></ons-icon>
+                Menu
+            </label>
+            <h2>Universidad de Guadalajara</h2>
+            <nav class="menu menuC">
+                <ul>
+                    <li>
+                        <ons-icon icon="md-home"></ons-icon>
+                       Menu Principal
+                    </li>
+                    <li>
+                        <ons-icon icon="ion-exit"></ons-icon>
+                    Cerrar sesion
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </main>
+            <!--<ons-toolbar>
+        <div class="left"><ons-back-button>Cerrar sesión</ons-back-button></div>
+        <div class="center"> Bienvenido</div>
+    </ons-toolbar>
+    <center>
+
+        <label id="recibeD"></label>
+        <br /><br /><br />
+        <img id="avatar" width="160" height="160" class="avatar">
+        <br /><br /><br />
+        ¿Que quieres Hacer?
+        <br />
+        <ons-button onClick="alta()">Alta</ons-button>
+        <ons-button onClick="baja()">Baja</ons-button>
+    </center>-->
+        </ons-page>
+    </ons-template>
+</body>
+</html>
