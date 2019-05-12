@@ -3,8 +3,10 @@
 <head>
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
-    <link rel="stylesheet" href="icon/css/fontello.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Blank App</title>
@@ -14,6 +16,8 @@
             background: #efefef;
             font-family: ‘Open Sans’, sans-serif;
             color: #777;
+            overflow: hidden;
+            padding: 50px;
         }
 
         a {
@@ -30,86 +34,23 @@
             margin: 100px auto 0;
         }
 
-        /*= CONTAINERS
-——————————————————–*/
-        .content-all {
-            width: 100%;
-            max-width: 1000px;
-            background: #4592af;
-            margin: auto;
-            margin-top: 80px;
+        .avatar{
+            vertical-align:middle;
+            width: 260px;
+            height: 260px;
+            border-radius:50%;
         }
-
-            .content-all label {
-                position: fixed;
-                width: 100%;
-                max-width: 1000px;
-                top: 14px;
-                font-size: 20px;
-                color: white;
-                z-index: 10;
-            }
-
-        .content-all h2{
-            position: fixed;
-            width: 100%;
-            max-width: 900px;
-            top: 20px;
-            font-size: 22px;
-            text-align: center;
-            color: white;
+        ——————————————————–
+        .img {
+            background: #5588a3;
         }
-
-
-        header {
-            width: 100%;
-            height: 60px;
-            position: fixed;
-            background: #4592af;
-            left: 0;
-            top: 0;
-        }
-
-        #check {
-            position: fixed;
-            width: 400px;
-            height: 100vh;
-            background: #4592af;
-            display: none;
-        }
-
-            #check:checked ~ .menu{
-                width: 400px;
-            }
-
         .menu {
-            position: fixed;
-            top: 60px;
-            width: 0px;
-            height: 100vh;
             background: #4592af;
-            transition: all 500ms cubic-bezier(1,0,0,1);
-            transition-timing-function: cubic-bezier(1,0,0,3);
-            overflow: hidden;
+            opacity: 0.9;
+            box-shadow: 0 1px 3px rgba(0,0,0,.13);
         }
 
-        .menuC{
-
-        }
-
-
-        .menu li{
-            list-style: none;
-            padding: 14px;
-            color: white;
-            cursor: pointer;
-            transition: all 300ms;
-            display: block;
-            width: 400px;
-        }
-
-        .menu li:hover{
-            background: rgba(0,0,0,0.2);
+        .menuC {
         }
 
         .container {
@@ -132,7 +73,7 @@
             margin: 160px auto 0;
             -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
             -moz-box-shadow: 0 1px 3px rgba(0,0,0,.13);
-            box-shadow: 0 1px 3px rgba(0,0,0,.13);
+            box-shadow: 0 18px 20px rgba(0,0,0,.13);
         }
 
         .container h1 {
@@ -145,7 +86,7 @@
 
         .container label {
             color: #777;
-            font-size: 14px;
+            font-size: 18px;
         }
 
         #login {
@@ -173,8 +114,8 @@
                 box-shadow: 0 0 3px 0 rgba(245,130,32,0.75);
             }
 
-        /*= BUTTONS
-——————————————————–*/
+
+        ——————————————————–
 
         .button {
             border: solid 1px #4592af;
@@ -188,132 +129,811 @@
             -moz-border-radius: 4px;
             border-radius: 4px;
             float: right;
-            
         }
 
-            .button:hover {
-                background: #4592af;
-                background: -webkit-gradient(linear, left top, left bottom, from(#4592af), to(#4592af));
-                background: -moz-linear-gradient(top, #4592af, #4592af);
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#4592af′, endColorstr=’#4592af′);
-            }
+        .button_2 {
+            border: solid 1px #900048;
+            background: #900048;
+            background: -webkit-gradient(linear, left top, left bottom, from(#900048), to(#900048));
+            background: -moz-linear-gradient(top, #900048, #900048);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#900048’, endColorstr=’#900048′);
+            color: #fff;
+            padding: 50px 170px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            float: initial;
+            box-shadow: 0 18px 20px rgba(0,0,0,.13);
+            white-space: normal;
+        }
 
-        /*= FOOTER
-——————————————————–*/
+        .button_3 {
+            border: solid 1px #d65a31;
+            background: #d65a31;
+            background: -webkit-gradient(linear, left top, left bottom, from(#d65a31), to(#d65a31));
+            background: -moz-linear-gradient(top, #d65a31, #d65a31);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#d65a31’, endColorstr=’#d65a31′);
+            color: #fff;
+            padding: 50px 170px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            float: initial;
+            box-shadow: 0 18px 20px rgba(0,0,0,.13);
+        }
+
+        .button_4 {
+            border: solid 1px #014441;
+            background: #014441;
+            background: -webkit-gradient(linear, left top, left bottom, from(#014441), to(#014441));
+            background: -moz-linear-gradient(top, #014441, #014441);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#014441’, endColorstr=’#014441′);
+            color: #fff;
+            padding: 50px 170px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            float: initial;
+            box-shadow: 0 18px 20px rgba(0,0,0,.13);
+        }
+
+        .button:hover {
+            background: #4592af;
+            background: -webkit-gradient(linear, left top, left bottom, from(#4592af), to(#4592af));
+            background: -moz-linear-gradient(top, #4592af, #4592af);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#4592af′, endColorstr=’#4592af′);
+        }
+
+        .button_2:hover {
+            border: #738598;
+            background: #738598;
+            background: -webkit-gradient(linear, left top, left bottom, from(#738598), to(#738598));
+            background: -moz-linear-gradient(top, #738598, #738598);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#738598′, endColorstr=’#738598′);
+        }
+
+        .button_3:hover {
+            border: #738598;
+            background: #738598;
+            background: -webkit-gradient(linear, left top, left bottom, from(#738598), to(#738598));
+            background: -moz-linear-gradient(top, #738598, #738598);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#738598′, endColorstr=’#738598′);
+        }
+
+        .button_4:hover {
+            border: #738598;
+            background: #738598;
+            background: -webkit-gradient(linear, left top, left bottom, from(#738598), to(#738598));
+            background: -moz-linear-gradient(top, #738598, #738598);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#738598′, endColorstr=’#738598′);
+        }
+
+
+
+        ——————————————————–
         .footer {
             color: #777;
-            font-size: 12px;
+            font-size: 20px;
             text-align: center;
             margin-top: 20px;
         }
     </style>
     <script>
+        var nombreUDG;
+        var nombre;
+        var codigo;
+        var centro;
+        var carrera;
+        var foto;
         function enviar() {
-            var valor1 = document.getElementById("user").nodeValue;
-            var valor2 = document.getElementById("pass").value;
-
-            console.log(valor1);
             if (valor1 == "" && valor2 == "") {
                 ons.notification.alert("Campo Vacio :)");
             } else {
-                console.log(valor1);
-                xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        if (this.responseText == "0") {
-                            ons.notification.alert("Usuario no existe");
+
+                var valor1 = document.getElementById("user").value;
+                var valor2 = document.getElementById("pass").value;
+
+                $.ajax({
+                    url: "https://dcc.000webhostapp.com/pruebaLogin.php",
+                    type: "post",
+                    async: false,
+                    data: {
+                        codigo: valor1,
+                        nip: valor2
+                    },
+
+                    success: function (response) {
+
+                        if (response == 0) {
+                            ons.notification.alert("No existe Alumno");
+                        } else {
+                            //console.log(response);
+                            var datos = response.split(',');
+                            nombreUDG = datos[2];
+                            data(valor1, valor2, datos[1], datos[2], datos[3], datos[4]);
                         }
-                        else {
-                            console.log(this.responseText);
-                            //var myNavigator = document.getElementById('myNavigator');
-                            //myNavigator.pushPage('page2.html').then(() => {
-                            //    //var cadena = this.responseText.slice(1, -1);
-                            //    var datos = JSON.parse(this.responseText);
-                            //    document.getElementById("recibeD").innerHTML = "Hola, " + datos.nombre;
-                            //    avatar.setAttribute('src', datos.imagen.replace(/ /g, "+"));
-                            //});
-                        }
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(xhr.response);
+                        console.log(xhr.response);
+                        ons.notification("Ocurrio un error");
                     }
-                }
-                xmlhttp.open("POST", "https://dcc.000webhostapp.com/infoEstudiante.php?codigo=" + valor1 + "&nip=" + valor2, true);//con https funciona en escritorio, con http en moviles
-                xmlhttp.send();
+                });
             }
         }
+
+        function data(v1, v2, dato1, dato2, dato3, dato4) {
+
+            $.ajax({
+                url: "https://dcc.000webhostapp.com/infoEstudiante.php",
+                type: "post",
+                async: false,
+                data: {
+                    codigo: v1,
+                    nip: v2
+                },
+
+                success: function (response) {
+                    //console.log(response);
+
+                    var cadena = response;
+                    cadena = cadena.substring(cadena.indexOf("/") + 1);
+                    cadena = cadena.split(',');
+                    cadena = cadena[0].slice(0, -1);
+                    //console.log(cadena);
+                    nombre = dato2;
+                    codigo = dato1;
+                    centro = dato3;
+                    carrera = dato4;
+                    foto = cadena;
+                    var content = document.getElementById('content');
+                    content.load('perfil.html').then(() => {
+                        //var datos = response.split(',');
+                        document.getElementById('nombre').innerText = "Hola, " + dato2;
+                        document.getElementById('codigo').innerText = "Codigo: " + dato1;
+                        document.getElementById('centro').innerText = "Centro universitario: " + dato3;
+                        document.getElementById('carrera').innerText = "Carrera: " + dato4;
+                        avatar.setAttribute('src', "data:image/jpg;base64,/" + cadena);
+
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.response);
+                    console.log(xhr.response);
+                    ons.notification("Ocurrio un error");
+                }
+            });
+        }
+
+
+        function PaginaApoyo() {
+
+            fn.load('paginaApoyo');
+            //var v1=111;
+            var txt = '';
+            var myObj;
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    if (this.responseText == "0") {
+                        ons.notification.alert("Usuario no existe");
+                    }
+                    else {
+                        console.log(this.responseText);
+                        var cadena = this.responseText;//.slice(1,-1);
+                        var datos = JSON.parse(cadena);
+                        for (x in datos) {
+                            txt += '<ons-list-item  onclick="Publicacion(\'' + datos[x].asunto + ',' + datos[x].nombre + ',' + datos[x].descripcion + ',' + datos[x].id_publicacion + '\')">' +
+                                "<div class='left'>" +
+                                //"<img class='list-item__thumbnail' src="+datos[x].imagen.replace(/ /g,"+")+">"+
+                                "<i class='far fa-user-circle' style='font-size: 35px; color: #c06c84'> </i> " +
+                                "</div>" +
+                                "<div class='center'>" +
+                                "<span class='list-item__title' style='color: #35477d'>" + datos[x].asunto + "</span><span class='list-item__subtitle' style='color: #6c5b7b'>" +
+                                datos[x].nombre + "</span>" +
+                                "</div>" +
+                                "</ons-list-item>";
+                        }
+                        //txt += "</ons-list>"
+                        document.getElementById("demo").innerHTML = txt;
+                    }
+                }
+            }
+            xmlhttp.open("GET", "https://fit-recognitions.000webhostapp.com/publicaciones.php", true);//con https funciona en escritorio, con http en moviles
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send();
+
+        }
+
+        function PaginaRecursos() {
+
+            fn.load('paginaRecursos');
+            var txt = '';
+            var myObj;
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    if (this.responseText == "0") {
+                        ons.notification.alert("Usuario no existe");
+                    }
+                    else {
+                        console.log(this.responseText);
+                        var cadena = this.responseText;//.slice(1,-1);
+                        var datos = JSON.parse(cadena);
+                        for (x in datos) {
+                            txt += '<ons-list-item  onclick="Publicacion(\'' + datos[x].asunto + ',' + datos[x].nombre + ',' + datos[x].descripcion + ',' + datos[x].id_publicacion + '\')">' +
+                                "<div class='left'>" +
+                                //"<img class='list-item__thumbnail' src="+datos[x].imagen.replace(/ /g,"+")+">"+
+                                "<i class='far fa-user-circle' style='font-size: 35px; color: #c06c84'> </i>" +
+                                "</div>" +
+                                "<div class='center'>" +
+                                "<span class='list-item__title' style='color: #35477d'>" + datos[x].asunto + "</span><span class='list-item__subtitle' style='color: #6c5b7b'>" +
+                                datos[x].nombre + "</span>" +
+                                "</div>" +
+                                "</ons-list-item>";
+                        }
+                        //txt += "</ons-list>"
+                        document.getElementById("demoRec").innerHTML = txt;
+                    }
+                }
+            }
+            xmlhttp.open("GET", "https://fit-recognitions.000webhostapp.com/publicacionesRecursos.php", true);//con https funciona en escritorio, con http en moviles
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send();
+        }
+
+        function PaginaLibre() {
+
+            fn.load('paginaLibre');
+            var txt = '';
+            var myObj;
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    if (this.responseText == "0") {
+                        ons.notification.alert("Usuario no existe");
+                    }
+                    else {
+                        console.log(this.responseText);
+                        var cadena = this.responseText;//.slice(1,-1);
+                        var datos = JSON.parse(cadena);
+                        for (x in datos) {
+                            txt += '<ons-list-item onclick="Publicacion(\'' + datos[x].asunto + ',' + datos[x].nombre + ',' + datos[x].descripcion + ',' + datos[x].id_publicacion + '\')">' +
+                                "<div class='left'>" +
+                                //"<img class='list-item__thumbnail' src="+datos[x].imagen.replace(/ /g,"+")+">"+
+                                "<i class='far fa-user-circle' style='font-size: 35px; color: #c06c84'> </i>" +
+                                "</div>" +
+                                "<div class='center'>" +
+                                "<span class='list-item__title' style='color: #35477d'>" + datos[x].asunto + "</span><span class='list-item__subtitle' style='color: #6c5b7b'>" +
+                                datos[x].nombre + "</span>" +
+                                "</div>" +
+                                "</ons-list-item>";
+                        }
+                        //txt += "</ons-list>"
+                        document.getElementById("demoLib").innerHTML = txt;
+                    }
+                }
+            }
+            xmlhttp.open("GET", "https://fit-recognitions.000webhostapp.com/publicacionesLibre.php", true);//con https funciona en escritorio, con http en moviles
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send();
+        }
+
+        var altaseccion;
+        function PaginaPublicar(seccion1) {
+
+            fn.load('paginaPublicar');
+            console.log(seccion1);
+            altaseccion = seccion1;
+            $(function () {
+                document.getElementById("sec").innerHTML = seccion1;
+
+            });
+        }
+
+        function Publicar() {
+            var altaasunto = document.getElementById("asunto1").value;
+            var altadescripcion = document.getElementById("descripcion1").value;
+            xmlhttp1 = new XMLHttpRequest();
+            xmlhttp1.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    ons.notification.alert(this.responseText);
+                }
+            }
+            //El php usa GET
+            //para usar en el telefono quitar la S de https
+            xmlhttp1.open("GET", "http://fit-recognitions.000webhostapp.com/altaPublicaciones.php?nombre=" + nombreUDG + "&asunto="
+                + altaasunto + "&descripcion=" + altadescripcion + "&seccion=" + altaseccion, true);
+            xmlhttp1.send();
+
+        }
+
+        function Publicacion(ti, nom, des, id) {
+
+            fn.load('paginaPublicacion');
+            var nucode = '';
+            nucode = ti;
+            console.log(nucode);
+            var str = nucode;
+            var chars = str.split(',');
+            var agu = '<ons-button modifier="large" onclick="PaginaComentar(\'' + chars[3] + '\')">NUEVO COMENTARIO</ons-button>';
+            $(function () {
+                document.getElementById("uga").innerHTML = agu;
+                document.getElementById("omg").innerHTML = chars[0];
+                document.getElementById("omgNom").innerHTML = chars[1];
+                document.getElementById("omgDes").innerHTML = chars[2];
+                document.getElementById("omgID").innerHTML = chars[3];
+            });
+
+            var txt1 = '';
+            var myObj1;
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    if (this.responseText == "0") {
+                        ons.notification.alert("Publicación sin comentarios");
+                    }
+                    else {
+                        console.log(this.responseText);
+                        var cadena1 = this.responseText;//.slice(1,-1);
+                        var datos1 = JSON.parse(cadena1);
+                        for (x in datos1) {
+                            txt1 += '<ons-list-item>' +
+                                "<div class='left'>" +
+                                //"<img class='list-item__thumbnail' src="+datos[x].imagen.replace(/ /g,"+")+">"+
+                                "<i class='far fa-user-circle' style='font-size: 35px; color: #c06c84'> </i>" +
+                                "</div>" +
+                                "<div class='center'>" +
+                                "<span class='list-item__title'>" + datos1[x].comentario + "</span><span class='list-item__subtitle'>" +
+                                datos1[x].nombre + "</span>" +
+                                "</div>" +
+                                "</ons-list-item>";
+
+                        }
+                        //txt += "</ons-list>"
+                        document.getElementById("demo1").innerHTML = txt1;
+                    }
+                }
+            }
+            xmlhttp.open("GET", "https://fit-recognitions.000webhostapp.com/comentarios.php?idpublicacion=" + chars[3], true);//con https funciona en escritorio, con http en moviles
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send();
+        }
+        var altaidpub;
+        function PaginaComentar(idpub) {
+
+            fn.load('Comentario');
+            console.log(idpub);
+            altaidpub = idpub;
+            $(function () {
+                document.getElementById("wau").innerHTML = idpub;
+                document.getElementById("guau").innerHTML = nombreUDG;
+
+            });
+        }
+
+        function Comentar() {
+
+            //fn.load('paginaPublicacion');
+            var altacomentario = document.getElementById("comentario1").value;
+            xmlhttp1 = new XMLHttpRequest();
+            xmlhttp1.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    ons.notification.alert(this.responseText);
+                }
+            }
+            //El php usa GET
+            //para usar en el telefono quitar la S de https
+            xmlhttp1.open("GET", "http://fit-recognitions.000webhostapp.com/altaComentarios.php?idpublicacion=" + altaidpub + "&nombre="
+                + nombreUDG + "&comentario=" + altacomentario, true);
+            xmlhttp1.send();
+        }
+
+        function Perfil() {
+            var content = document.getElementById('content');
+            content.load('perfil.html').then(() => {
+                //var datos = response.split(',');
+                document.getElementById('nombre').innerText = "Hola, " + nombre;
+                document.getElementById('codigo').innerText = "Codigo: " + codigo;
+                document.getElementById('centro').innerText = "Centro universitario: " + centro;
+                document.getElementById('carrera').innerText = "Carrera: " + carrera;
+                avatar.setAttribute('src', "data:image/jpg;base64,/" + foto);
+
+            });
+        }
+
+        window.fn = {};
+
+        window.fn.open = function () {
+            var menu = document.getElementById('menu');
+            menu.open();
+        };
+
+        window.fn.load = function (page) {
+            var content = document.getElementById('content');
+            var menu = document.getElementById('menu');
+            content.load(page).then(menu.close.bind(menu));
+        };
+
+
     </script>
+	
 </head>
 <body>
     <script type="text/javascript" src="cordova.js"></script>
-    <ons-navigator animation="fade" swipeable id="myNavigator" page="page1.html"></ons-navigator>
+    <!--<ons-navigator animation="fade" swipeable id="myNavigator" page="page1.html">
+    </ons-navigator>-->
+    <ons-splitter>
+        <ons-splitter-side class="menu" id="menu" width="220px" collapse swipeable>
+            <ons-page>
+                <ons-list>
+                    <ons-list-item onclick="Perfil()" tappable>
+                        <i class="far fa-user-circle"> </i>
+                        Perfil
+                    </ons-list-item>
+                    <ons-list-item onclick="fn.load('page2.html')" tappable>
+                        <i class="fas fa-home"> </i>
+                        Menu Principal
+                    </ons-list-item>
+                    <ons-list-item onclick="fn.load('page1.html')" tappable>
+                        <i class="fas fa-sign-out-alt"> </i>
+                        Cerrar sesion
+                    </ons-list-item>
+                </ons-list>
+            </ons-page>
+        </ons-splitter-side>
+        <ons-splitter-content id="content" page="page1.html"></ons-splitter-content>
+    </ons-splitter>
+
+
 
     <ons-template id="page1.html">
         <ons-page id="pagina1">
             <center>
-                <div class="container mlogin">
+                <div class="container mlogin" style="box-shadow:  0px 0px 60px -15px  rgba(0,0,0,0.58)">
                     <div id="login">
-                        
-                        <img src="imagen\logo_udg.png" width="160" height="180">
-                           <p>
-                                <label for="user_login">
-                                    Codigo de Alumno:<br />
-                                    <input type="text" name="codigo" id="user" class="input" size="20" />
-                                </label>
-                            </p>
-                            <p>
-                                <label for="user_pass">
-                                    Contraseña:<br />
-                                    <input type="password" name="nip" id="pass" class="input" size="20" />
-                                </label>
-                            </p>
-                            <p class="submit">
-                                <input type="submit" onclick="enviar()" class="button" value="Entrar"/>
-                            </p>
+
+                        <img src="imagen\logo_udg.png" class="imagen" width="160" height="180">
+                        <p>
+                            <label for="user_login">
+                                Codigo de Alumno:
+                                <br />
+                                <input type="text" name="codigo" id="user" class="input" size="20" />
+                            </label>
+                        </p>
+                        <p>
+                            <label for="user_pass">
+                                Contraseña:
+                                <br />
+                                <input type="password" name="nip" id="pass" class="input" size="20"/>
+                            </label>
+                        </p>
+                        <p class="submit">
+                            <input type="submit" onclick="enviar()" style="box-shadow:  0px 0px 30px -3px  rgba(0,0,0,0.58)" class="button" value="Entrar" />
+
+                        </p>
                     </div>
                 </div>
             </center>
         </ons-page>
     </ons-template>
 
+	
+
     <ons-template id="page2.html">
         <ons-page id="pagina2">
 
-            <main>
-        <div class="content-all">
-            <header></header>
-            <input type="checkbox" id="check" />
-            <label for="check" class="icon-menu">
-                <ons-icon icon="ion-navicon" size="35px"></ons-icon>
-                Menu
-            </label>
-            <h2>Universidad de Guadalajara</h2>
-            <nav class="menu menuC">
-                <ul>
-                    <li>
-                        <ons-icon icon="md-home"></ons-icon>
-                       Menu Principal
-                    </li>
-                    <li>
-                        <ons-icon icon="ion-exit"></ons-icon>
-                    Cerrar sesion
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </main>
-            <!--<ons-toolbar>
-        <div class="left"><ons-back-button>Cerrar sesión</ons-back-button></div>
-        <div class="center"> Bienvenido</div>
-    </ons-toolbar>
-    <center>
+            <ons-toolbar style="background: #c06c84;box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)">
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu" style="color:#fff"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center" style="color:#fff">
+                    Universidad de Guadalajara
+                </div>
+            </ons-toolbar>
+            <br />
+            <br />
+            <br />
+            <section style="margin: 16px">
+                <center>
 
-        <label id="recibeD"></label>
-        <br /><br /><br />
-        <img id="avatar" width="160" height="160" class="avatar">
-        <br /><br /><br />
-        ¿Que quieres Hacer?
-        <br />
-        <ons-button onClick="alta()">Alta</ons-button>
-        <ons-button onClick="baja()">Baja</ons-button>
-    </center>-->
+                    <v-ons-button modifier="Apoyo" type="submit" class="button_2" onclick="PaginaApoyo()" style="margin: 6px 0">
+                        Apoyo
+
+                    </v-ons-button>
+                </center>
+            </section>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <section style="margin: 16px">
+                <center>
+                    <v-ons-button modifier="Apoyo" font-size="18px" type="submit" class="button_3" onclick="PaginaRecursos()"style="margin: 6px 0">Recursos</v-ons-button>
+                </center>
+            </section>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <section style="margin: 16px">
+                <center>
+                    <v-ons-button modifier="Apoyo" type="submit" class="button_4"  onclick="PaginaLibre()" style="margin: 6px 0">Libre</v-ons-button>
+                </center>
+            </section>
+        </ons-page>
+    </ons-template>
+
+
+
+    <ons-template id="perfil.html">
+        <ons-page id="perfil">
+            <ons-toolbar style="background:#8aae92;box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)">
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu" style="color:#fff"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center" style="color:#fff">
+                    Universidad de Guadalajara
+                </div>
+            </ons-toolbar>
+
+            <ons-card style="box-shadow: 0 3px 5px 0px rgba(0,0,0,.13)">
+                <img id="avatar" alt="Onsen UI" style="width: 100%;border-radius: 20px;box-shadow: 0px 0px 25px -4px rgba(0,0,0,0.58)" >
+                <div class="title" id="nombre"></div>
+                <div class="content">
+                    <div>
+                        <ons-button style="background:#8aae92;color:#fff"><ons-icon icon="ion-thumbsup"></ons-icon></ons-button>
+                    </div>
+                    <br />
+                    <ons-list>
+                        <ons-list-header style="background:#8aae92;color:#fff">Informacion Estudiante</ons-list-header>
+                        <ons-list-item id="codigo"></ons-list-item>
+                        <ons-list-item id="centro"></ons-list-item>
+                        <ons-list-item id="carrera"></ons-list-item>
+                    </ons-list>
+                </div>
+            </ons-card>
+        </ons-page>
+    </ons-template>
+	
+	
+	
+	
+	<ons-template id="paginaApoyo">
+        <ons-page>
+            <ons-toolbar style="background:#40a798;box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)">
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu" style="color:#fff"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center" style="color:#fff">
+                    APOYO
+                </div>
+            </ons-toolbar>
+
+            <ons-card class="img" style=" box-shadow: 0 3px 5px rgba(0,0,0,.13)">
+                <center>
+                    <img src="imagen\apoyo.png" alt="Apoyo" style="width:500px;height:250px;border-radius: 20px;box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.58)">
+                </center>
+                <div class="title" id="contenedor">
+
+                </div>
+                <div class="content">
+                    <div>
+                        <br>
+                        <ons-button modifier="large" style="background:#40a798;box-shadow:  0px 0px 30px -3px  rgba(0,0,0,0.58)" onclick="PaginaPublicar('apoyo')">NUEVA PUBLICACION</ons-button>
+                        <br>
+                    </div>
+                </div>
+            </ons-card>
+            <ons-card class="img">
+                <div class="content">
+                    <ons-list-header style="background: #40a798;color: #fff">Publicaciones</ons-list-header>
+                    <ons-list id="demo"></ons-list>
+                </div>
+            </ons-card>           
+        </ons-page>
+    </ons-template>
+	
+	
+	
+	
+	<ons-template id="paginaRecursos">
+        <ons-page>
+            <ons-toolbar style="background:#207e82;box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)">
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu" style="color:#fff"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center" style="color:#fff">
+                    RECURSOS
+                </div>
+            </ons-toolbar>
+
+            <ons-card style=" box-shadow: 0 3px 5px rgba(0,0,0,.13)">
+                <center>
+                    <img src="imagen\recursos.jpg" alt="Recursos" style="width:500px;height:250px;border-radius: 20px;box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.58)">
+                </center>
+                <div class="title" id="contenedor">
+
+                </div>
+                <div class="content">
+                    <div>
+                        <br>
+                        <ons-button modifier="large" style="background:#207e82;box-shadow:  0px 0px 30px -3px  rgba(0,0,0,0.58)" onclick="PaginaPublicar('recursos')">NUEVA PUBLICACION</ons-button>
+                        <br>
+                    </div>
+                </div>
+            </ons-card>
+            <ons-card class="img">
+                <div class="content">
+                    <ons-list-header style="background: #207e82;color: #fff">Recursos</ons-list-header>
+                    <ons-list id="demoRec"></ons-list>
+                </div>
+            </ons-card>
+        </ons-page>
+    </ons-template>
+	
+	
+	
+	
+	<ons-template id="paginaLibre">
+        <ons-page>
+            <ons-toolbar style="background:#62929a;box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)">
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu" style="color:#fff"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center" style="color:#fff">
+                    LIBRE
+                </div>
+            </ons-toolbar>
+
+            <ons-card>
+                <center>
+                    <img src="imagen\libre.jpg" alt="Libre" style="width:500px;height:250px;border-radius: 20px;box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.58)">
+                </center>
+                <div class="title" id="contenedor">
+
+                </div>
+                <div class="content">
+                    <div>
+                        <br>
+                        <ons-button modifier="large" style="background:#62929a;box-shadow:  0px 0px 30px -3px  rgba(0,0,0,0.58)" onclick="PaginaPublicar('libre')">NUEVA PUBLICACION</ons-button>
+                        <br>
+                    </div>               
+                </div>
+            </ons-card>
+            <ons-card class="img">
+                <div class="content">
+                    <ons-list-header style="background: #62929a;color: #fff">Publicacion libre</ons-list-header>
+                    <ons-list id="demoLib"></ons-list>
+                </div>
+            </ons-card>
+        </ons-page>
+    </ons-template>
+	
+	
+	
+	
+	<ons-template id="paginaPublicar">
+        <ons-page>
+            <ons-toolbar style="box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)">
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">
+                    NUEVA PUBLICACION
+                </div>
+            </ons-toolbar>
+
+            <ons-card>
+			<center>
+			<span>seccion: </span><span id="sec"></span>
+			<div>Asunto: <ons-input id="asunto1" modifier="underbar" type="text"></ons-input></div>
+                <br />
+			<div>Descripcion: <ons-input id="descripcion1" type="text" modifier="underbar"></ons-input></div>
+            <br>
+			<br>
+			<ons-button modifier="large" onclick="Publicar()" style="box-shadow:  0px 0px 30px -3px  rgba(0,0,0,0.58)">PUBLICAR</ons-button>
+			</center>
+			</ons-card>
+        </ons-page>
+    </ons-template>
+	
+	
+	
+	
+	
+	<ons-template id="paginaPublicacion">
+        <ons-page>
+            <ons-toolbar style="box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)">
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">
+                    Universidad de Guadalajara
+                </div>
+            </ons-toolbar>
+		<br>
+		<center id="uga">
+			<ons-button modifier="large" style="box-shadow:  0px 0px 30px -3px  rgba(0,0,0,0.58)" onclick="PaginaComentar()">NUEVO COMENTARIO</ons-button>
+		</center>
+            <ons-card>
+			<br>
+			<span>asunto: </span><span id="omg"></span>
+			<div class="title" id="titulo" >
+			</div>
+			<div class="content">
+			<div>
+			<span>descripcion: </span><textarea id="omgDes" class="textarea textarea--transparent" rows="3" placeholder="Descripción de la publicación"></textarea>
+			</div>
+			<br>
+			<img class="list-item__thumbnail" src="imagen\usuario.png" />
+			<span>nombre: </span><span id="omgNom"></span>
+			<br>
+			<span>id_publicacion: </span><span id="omgID"></span>
+			<br>
+			<div>
+				<ons-button><ons-icon icon="ion-thumbsup"></ons-icon></ons-button>
+				<ons-button><ons-icon icon="ion-share"></ons-icon></ons-button>
+			</div>
+			</div>
+			</ons-card>
+			
+			<ons-card>
+			<ons-list id="demo1"></ons-list>
+			
+					</ons-card>
+        </ons-page>
+    </ons-template>
+	
+	
+	
+	<ons-template id="Comentario">
+        <ons-page>
+            <ons-toolbar style="box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)">
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">
+                    NUEVO COMENTARIO
+                </div>
+            </ons-toolbar>
+
+            <ons-card>
+			<center>
+			<span>id_publicacion: </span><span id="wau"></span>
+			<span>nombreUDG: </span><span id="guau"></span>
+			<div>
+			Comentario: <ons-input id="comentario1" type="text" modifier="underbar"></ons-input>
+			</div>
+			<br>
+			<br>
+			<ons-button modifier="large" onclick="Comentar()">PUBLICAR</ons-button>
+			</center>
+			</ons-card>
         </ons-page>
     </ons-template>
 </body>
