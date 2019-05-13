@@ -39,6 +39,7 @@
             width: 260px;
             height: 260px;
             border-radius:50%;
+<<<<<<< HEAD
         }
         header{
             margin: 50px auto;
@@ -118,6 +119,17 @@
             background: #4592af;
             opacity: 0.9;
             box-shadow: 0px 0px 30px 5px rgba(0,0,0,.20);
+=======
+        }
+        ——————————————————–
+        .img {
+            background: #5588a3;
+        }
+        .menu {
+            background: #4592af;
+            opacity: 0.9;
+            box-shadow: 0 1px 3px rgba(0,0,0,.13);
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
         }
 
         .menuC {
@@ -201,12 +213,91 @@
             float: right;
         }
 
+<<<<<<< HEAD
+=======
+        .button_2 {
+            border: solid 1px #900048;
+            background: #900048;
+            background: -webkit-gradient(linear, left top, left bottom, from(#900048), to(#900048));
+            background: -moz-linear-gradient(top, #900048, #900048);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#900048’, endColorstr=’#900048′);
+            color: #fff;
+            padding: 50px 170px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            float: initial;
+            box-shadow: 0 18px 20px rgba(0,0,0,.13);
+            white-space: normal;
+        }
+
+        .button_3 {
+            border: solid 1px #d65a31;
+            background: #d65a31;
+            background: -webkit-gradient(linear, left top, left bottom, from(#d65a31), to(#d65a31));
+            background: -moz-linear-gradient(top, #d65a31, #d65a31);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#d65a31’, endColorstr=’#d65a31′);
+            color: #fff;
+            padding: 50px 170px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            float: initial;
+            box-shadow: 0 18px 20px rgba(0,0,0,.13);
+        }
+
+        .button_4 {
+            border: solid 1px #014441;
+            background: #014441;
+            background: -webkit-gradient(linear, left top, left bottom, from(#014441), to(#014441));
+            background: -moz-linear-gradient(top, #014441, #014441);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#014441’, endColorstr=’#014441′);
+            color: #fff;
+            padding: 50px 170px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            float: initial;
+            box-shadow: 0 18px 20px rgba(0,0,0,.13);
+        }
+
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
         .button:hover {
             background: #4592af;
             background: -webkit-gradient(linear, left top, left bottom, from(#4592af), to(#4592af));
             background: -moz-linear-gradient(top, #4592af, #4592af);
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#4592af′, endColorstr=’#4592af′);
         }
+<<<<<<< HEAD
+=======
+
+        .button_2:hover {
+            border: #738598;
+            background: #738598;
+            background: -webkit-gradient(linear, left top, left bottom, from(#738598), to(#738598));
+            background: -moz-linear-gradient(top, #738598, #738598);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#738598′, endColorstr=’#738598′);
+        }
+
+        .button_3:hover {
+            border: #738598;
+            background: #738598;
+            background: -webkit-gradient(linear, left top, left bottom, from(#738598), to(#738598));
+            background: -moz-linear-gradient(top, #738598, #738598);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#738598′, endColorstr=’#738598′);
+        }
+
+        .button_4:hover {
+            border: #738598;
+            background: #738598;
+            background: -webkit-gradient(linear, left top, left bottom, from(#738598), to(#738598));
+            background: -moz-linear-gradient(top, #738598, #738598);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#738598′, endColorstr=’#738598′);
+        }
+
+
+
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
         ——————————————————–
         .footer {
             color: #777;
@@ -273,6 +364,7 @@
                             var datos = response.split(',');
                             nombreUDG = datos[2];
                             data(valor1, valor2, datos[1], datos[2], datos[3], datos[4]);
+<<<<<<< HEAD
                         }
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
@@ -428,12 +520,177 @@
                         //txt += "</ons-list>"
                         document.getElementById("demoLib").innerHTML = txt;
 						document.body.className="";
+=======
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(xhr.response);
+                        console.log(xhr.response);
+                        ons.notification("Ocurrio un error");
+                    }
+                });
+            }
+        }
+
+        function data(v1, v2, dato1, dato2, dato3, dato4) {
+
+            $.ajax({
+                url: "https://dcc.000webhostapp.com/infoEstudiante.php",
+                type: "post",
+                async: false,
+                data: {
+                    codigo: v1,
+                    nip: v2
+                },
+
+                success: function (response) {
+                    //console.log(response);
+
+                    var cadena = response;
+                    cadena = cadena.substring(cadena.indexOf("/") + 1);
+                    cadena = cadena.split(',');
+                    cadena = cadena[0].slice(0, -1);
+                    //console.log(cadena);
+                    nombre = dato2;
+                    codigo = dato1;
+                    centro = dato3;
+                    carrera = dato4;
+                    foto = cadena;
+                    var content = document.getElementById('content');
+                    content.load('perfil.html').then(() => {
+                        //var datos = response.split(',');
+                        document.getElementById('nombre').innerText = "Hola, " + dato2;
+                        document.getElementById('codigo').innerText = "Codigo: " + dato1;
+                        document.getElementById('centro').innerText = "Centro universitario: " + dato3;
+                        document.getElementById('carrera').innerText = "Carrera: " + dato4;
+                        avatar.setAttribute('src', "data:image/jpg;base64,/" + cadena);
+
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.response);
+                    console.log(xhr.response);
+                    ons.notification("Ocurrio un error");
+                }
+            });
+        }
+
+
+        function PaginaApoyo() {
+
+            fn.load('paginaApoyo');
+            //var v1=111;
+            var txt = '';
+            var myObj;
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    if (this.responseText == "0") {
+                        ons.notification.alert("Usuario no existe");
+                    }
+                    else {
+                        console.log(this.responseText);
+                        var cadena = this.responseText;//.slice(1,-1);
+                        var datos = JSON.parse(cadena);
+                        for (x in datos) {
+                            txt += '<ons-list-item  onclick="Publicacion(\'' + datos[x].asunto + ',' + datos[x].nombre + ',' + datos[x].descripcion + ',' + datos[x].id_publicacion + '\')">' +
+                                "<div class='left'>" +
+                                //"<img class='list-item__thumbnail' src="+datos[x].imagen.replace(/ /g,"+")+">"+
+                                "<i class='far fa-user-circle' style='font-size: 35px; color: #c06c84'> </i> " +
+                                "</div>" +
+                                "<div class='center'>" +
+                                "<span class='list-item__title' style='color: #35477d'>" + datos[x].asunto + "</span><span class='list-item__subtitle' style='color: #6c5b7b'>" +
+                                datos[x].nombre + "</span>" +
+                                "</div>" +
+                                "</ons-list-item>";
+                        }
+                        //txt += "</ons-list>"
+                        document.getElementById("demo").innerHTML = txt;
+                    }
+                }
+            }
+            xmlhttp.open("GET", "https://fit-recognitions.000webhostapp.com/publicaciones.php", true);//con https funciona en escritorio, con http en moviles
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send();
+
+        }
+
+        function PaginaRecursos() {
+
+            fn.load('paginaRecursos');
+            var txt = '';
+            var myObj;
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    if (this.responseText == "0") {
+                        ons.notification.alert("Usuario no existe");
+                    }
+                    else {
+                        console.log(this.responseText);
+                        var cadena = this.responseText;//.slice(1,-1);
+                        var datos = JSON.parse(cadena);
+                        for (x in datos) {
+                            txt += '<ons-list-item  onclick="Publicacion(\'' + datos[x].asunto + ',' + datos[x].nombre + ',' + datos[x].descripcion + ',' + datos[x].id_publicacion + '\')">' +
+                                "<div class='left'>" +
+                                //"<img class='list-item__thumbnail' src="+datos[x].imagen.replace(/ /g,"+")+">"+
+                                "<i class='far fa-user-circle' style='font-size: 35px; color: #c06c84'> </i>" +
+                                "</div>" +
+                                "<div class='center'>" +
+                                "<span class='list-item__title' style='color: #35477d'>" + datos[x].asunto + "</span><span class='list-item__subtitle' style='color: #6c5b7b'>" +
+                                datos[x].nombre + "</span>" +
+                                "</div>" +
+                                "</ons-list-item>";
+                        }
+                        //txt += "</ons-list>"
+                        document.getElementById("demoRec").innerHTML = txt;
+                    }
+                }
+            }
+            xmlhttp.open("GET", "https://fit-recognitions.000webhostapp.com/publicacionesRecursos.php", true);//con https funciona en escritorio, con http en moviles
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send();
+        }
+
+        function PaginaLibre() {
+
+            fn.load('paginaLibre');
+            var txt = '';
+            var myObj;
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    if (this.responseText == "0") {
+                        ons.notification.alert("Usuario no existe");
+                    }
+                    else {
+                        console.log(this.responseText);
+                        var cadena = this.responseText;//.slice(1,-1);
+                        var datos = JSON.parse(cadena);
+                        for (x in datos) {
+                            txt += '<ons-list-item onclick="Publicacion(\'' + datos[x].asunto + ',' + datos[x].nombre + ',' + datos[x].descripcion + ',' + datos[x].id_publicacion + '\')">' +
+                                "<div class='left'>" +
+                                //"<img class='list-item__thumbnail' src="+datos[x].imagen.replace(/ /g,"+")+">"+
+                                "<i class='far fa-user-circle' style='font-size: 35px; color: #c06c84'> </i>" +
+                                "</div>" +
+                                "<div class='center'>" +
+                                "<span class='list-item__title' style='color: #35477d'>" + datos[x].asunto + "</span><span class='list-item__subtitle' style='color: #6c5b7b'>" +
+                                datos[x].nombre + "</span>" +
+                                "</div>" +
+                                "</ons-list-item>";
+                        }
+                        //txt += "</ons-list>"
+                        document.getElementById("demoLib").innerHTML = txt;
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                     }
                 }
             }
             xmlhttp.open("GET", "https://fit-recognitions.000webhostapp.com/publicacionesLibre.php", true);//con https funciona en escritorio, con http en moviles
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+<<<<<<< HEAD
 			document.body.className="loading";
+=======
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
             xmlhttp.send();
         }
 
@@ -455,16 +712,23 @@
             xmlhttp1 = new XMLHttpRequest();
             xmlhttp1.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
+<<<<<<< HEAD
                     //ons.notification.alert(this.responseText);
 					ons.notification.toast(this.responseText,{timeout: 2000});
 					document.body.className="";
+=======
+                    ons.notification.alert(this.responseText);
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                 }
             }
             //El php usa GET
             //para usar en el telefono quitar la S de https
             xmlhttp1.open("GET", "http://fit-recognitions.000webhostapp.com/altaPublicaciones.php?nombre=" + nombreUDG + "&asunto="
                 + altaasunto + "&descripcion=" + altadescripcion + "&seccion=" + altaseccion, true);
+<<<<<<< HEAD
 			document.body.className="loading";
+=======
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
             xmlhttp1.send();
 
         }
@@ -477,7 +741,11 @@
             console.log(nucode);
             var str = nucode;
             var chars = str.split(',');
+<<<<<<< HEAD
             var agu = '<ons-button modifier="large" style="background:#FFA860;box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)" onclick="PaginaComentar(\'' + chars[3] + '\')">NUEVO COMENTARIO</ons-button>';
+=======
+            var agu = '<ons-button modifier="large" onclick="PaginaComentar(\'' + chars[3] + '\')">NUEVO COMENTARIO</ons-button>';
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
             $(function () {
                 document.getElementById("uga").innerHTML = agu;
                 document.getElementById("omg").innerHTML = chars[0];
@@ -492,8 +760,12 @@
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     if (this.responseText == "0") {
+<<<<<<< HEAD
 						ons.notification.toast("Publicacion sin comentarios",{timeout: 2000});
 						document.body.className="";
+=======
+                        ons.notification.alert("Publicación sin comentarios");
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                     }
                     else {
                         console.log(this.responseText);
@@ -506,7 +778,11 @@
                                 "<i class='far fa-user-circle' style='font-size: 35px; color: #c06c84'> </i>" +
                                 "</div>" +
                                 "<div class='center'>" +
+<<<<<<< HEAD
                                 "<b class='list-item__title'>" + datos1[x].comentario + "</b><span class='list-item__subtitle'>" +
+=======
+                                "<span class='list-item__title'>" + datos1[x].comentario + "</span><span class='list-item__subtitle'>" +
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                                 datos1[x].nombre + "</span>" +
                                 "</div>" +
                                 "</ons-list-item>";
@@ -514,13 +790,19 @@
                         }
                         //txt += "</ons-list>"
                         document.getElementById("demo1").innerHTML = txt1;
+<<<<<<< HEAD
 						document.body.className="";
+=======
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                     }
                 }
             }
             xmlhttp.open("GET", "https://fit-recognitions.000webhostapp.com/comentarios.php?idpublicacion=" + chars[3], true);//con https funciona en escritorio, con http en moviles
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+<<<<<<< HEAD
 			document.body.className="loading";
+=======
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
             xmlhttp.send();
         }
         var altaidpub;
@@ -543,16 +825,23 @@
             xmlhttp1 = new XMLHttpRequest();
             xmlhttp1.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
+<<<<<<< HEAD
                     //ons.notification.alert(this.responseText);
 					ons.notification.toast(this.responseText,{timeout: 2000});
 					document.body.className="";
+=======
+                    ons.notification.alert(this.responseText);
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                 }
             }
             //El php usa GET
             //para usar en el telefono quitar la S de https
             xmlhttp1.open("GET", "http://fit-recognitions.000webhostapp.com/altaComentarios.php?idpublicacion=" + altaidpub + "&nombre="
                 + nombreUDG + "&comentario=" + altacomentario, true);
+<<<<<<< HEAD
 			document.body.className="loading";
+=======
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
             xmlhttp1.send();
         }
 
@@ -581,7 +870,10 @@
             var menu = document.getElementById('menu');
             content.load(page).then(menu.close.bind(menu));
         };
+<<<<<<< HEAD
 		
+=======
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
 
 
     </script>
@@ -594,22 +886,36 @@
     <ons-splitter>
         <ons-splitter-side class="menu" id="menu" width="220px" collapse swipeable>
             <ons-page>
+<<<<<<< HEAD
                 <ons-lis>
+=======
+                <ons-list>
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                     <ons-list-item onclick="Perfil()" tappable>
                         <i class="far fa-user-circle"> </i>
                         Perfil
                     </ons-list-item>
+<<<<<<< HEAD
                     <ons-list-item tappable></ons-list-item>
+=======
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                     <ons-list-item onclick="fn.load('page2.html')" tappable>
                         <i class="fas fa-home"> </i>
                         Menu Principal
                     </ons-list-item>
+<<<<<<< HEAD
                     <ons-list-item tappable></ons-list-item>
+=======
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                     <ons-list-item onclick="fn.load('page1.html')" tappable>
                         <i class="fas fa-sign-out-alt"> </i>
                         Cerrar sesion
                     </ons-list-item>
+<<<<<<< HEAD
                 </ons-lis>
+=======
+                </ons-list>
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
             </ons-page>
         </ons-splitter-side>
         <ons-splitter-content id="content" page="page1.html"></ons-splitter-content>
@@ -688,6 +994,62 @@
 
 
 
+<<<<<<< HEAD
+=======
+            <ons-toolbar style="background: #c06c84;box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)">
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu" style="color:#fff"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center" style="color:#fff">
+                    Universidad de Guadalajara
+                </div>
+            </ons-toolbar>
+            <br />
+            <br />
+            <br />
+            <section style="margin: 16px">
+                <center>
+
+                    <v-ons-button modifier="Apoyo" type="submit" class="button_2" onclick="PaginaApoyo()" style="margin: 6px 0">
+                        Apoyo
+
+                    </v-ons-button>
+                </center>
+            </section>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <section style="margin: 16px">
+                <center>
+                    <v-ons-button modifier="Apoyo" font-size="18px" type="submit" class="button_3" onclick="PaginaRecursos()"style="margin: 6px 0">Recursos</v-ons-button>
+                </center>
+            </section>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <section style="margin: 16px">
+                <center>
+                    <v-ons-button modifier="Apoyo" type="submit" class="button_4"  onclick="PaginaLibre()" style="margin: 6px 0">Libre</v-ons-button>
+                </center>
+            </section>
+        </ons-page>
+    </ons-template>
+
+
+
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
     <ons-template id="perfil.html">
         <ons-page id="perfil">
             <ons-toolbar style="background:#8aae92;box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)">
@@ -738,7 +1100,11 @@
 
             <ons-card class="img" style=" box-shadow: 0 3px 5px rgba(0,0,0,.13)">
                 <center>
+<<<<<<< HEAD
                     <img src="imagen\apoyo.png" alt="Apoyo" style="width:100%;border-radius: 20px;box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.58)">
+=======
+                    <img src="imagen\apoyo.png" alt="Apoyo" style="width:500px;height:250px;border-radius: 20px;box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.58)">
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                 </center>
                 <div class="title" id="contenedor">
 
@@ -754,10 +1120,14 @@
             <ons-card class="img">
                 <div class="content">
                     <ons-list-header style="background: #40a798;color: #fff">Publicaciones</ons-list-header>
+<<<<<<< HEAD
                     
 					<div class="loading-bar"></div>;
 					
 					<ons-list id="demo"></ons-list>
+=======
+                    <ons-list id="demo"></ons-list>
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                 </div>
             </ons-card>           
         </ons-page>
@@ -781,7 +1151,11 @@
 
             <ons-card style=" box-shadow: 0 3px 5px rgba(0,0,0,.13)">
                 <center>
+<<<<<<< HEAD
                     <img src="imagen\recursos.jpg" alt="Recursos" style="width:100%;border-radius: 20px;box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.58)">
+=======
+                    <img src="imagen\recursos.jpg" alt="Recursos" style="width:500px;height:250px;border-radius: 20px;box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.58)">
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                 </center>
                 <div class="title" id="contenedor">
 
@@ -797,9 +1171,13 @@
             <ons-card class="img">
                 <div class="content">
                     <ons-list-header style="background: #207e82;color: #fff">Recursos</ons-list-header>
+<<<<<<< HEAD
                     
 					<div class="loading-bar"></div>;
 					<ons-list id="demoRec"></ons-list>
+=======
+                    <ons-list id="demoRec"></ons-list>
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                 </div>
             </ons-card>
         </ons-page>
@@ -823,7 +1201,11 @@
 
             <ons-card>
                 <center>
+<<<<<<< HEAD
                     <img src="imagen\libre.jpg" alt="Libre" style="width:100%;border-radius: 20px;box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.58)">
+=======
+                    <img src="imagen\libre.jpg" alt="Libre" style="width:500px;height:250px;border-radius: 20px;box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.58)">
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                 </center>
                 <div class="title" id="contenedor">
 
@@ -839,9 +1221,13 @@
             <ons-card class="img">
                 <div class="content">
                     <ons-list-header style="background: #62929a;color: #fff">Publicacion libre</ons-list-header>
+<<<<<<< HEAD
                     
 					<div class="loading-bar"></div>;
 					<ons-list id="demoLib"></ons-list>
+=======
+                    <ons-list id="demoLib"></ons-list>
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                 </div>
             </ons-card>
         </ons-page>
@@ -852,7 +1238,11 @@
 	
 	<ons-template id="paginaPublicar">
         <ons-page>
+<<<<<<< HEAD
             <ons-toolbar style="background:#FFA860;box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)">
+=======
+            <ons-toolbar style="box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)">
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                 <div class="left">
                     <ons-toolbar-button onclick="fn.open()">
                         <ons-icon icon="md-menu"></ons-icon>
@@ -865,6 +1255,7 @@
 
             <ons-card>
 			<center>
+<<<<<<< HEAD
 			<br>
 			<span>seccion: </span><span id="sec"></span>
 			<br>
@@ -889,6 +1280,16 @@
 			<ons-button modifier="large" onclick="Publicar()" style="background:#FFA860;box-shadow:  0px 0px 30px -3px  rgba(0,0,0,0.58)">PUBLICAR</ons-button>
 			</center>
 			<div class="loading-bar"></div>;
+=======
+			<span>seccion: </span><span id="sec"></span>
+			<div>Asunto: <ons-input id="asunto1" modifier="underbar" type="text"></ons-input></div>
+                <br />
+			<div>Descripcion: <ons-input id="descripcion1" type="text" modifier="underbar"></ons-input></div>
+            <br>
+			<br>
+			<ons-button modifier="large" onclick="Publicar()" style="box-shadow:  0px 0px 30px -3px  rgba(0,0,0,0.58)">PUBLICAR</ons-button>
+			</center>
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
 			</ons-card>
         </ons-page>
     </ons-template>
@@ -899,17 +1300,26 @@
 	
 	<ons-template id="paginaPublicacion">
         <ons-page>
+<<<<<<< HEAD
             <ons-toolbar style="background:#FFA860;box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)">
+=======
+            <ons-toolbar style="box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)">
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                 <div class="left">
                     <ons-toolbar-button onclick="fn.open()">
                         <ons-icon icon="md-menu"></ons-icon>
                     </ons-toolbar-button>
                 </div>
+<<<<<<< HEAD
                 <div class="center" style="color:#fff">
+=======
+                <div class="center">
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                     Universidad de Guadalajara
                 </div>
             </ons-toolbar>
 		<br>
+<<<<<<< HEAD
 		
             <ons-card>
 			
@@ -948,6 +1358,33 @@
 			</center>
 			
 			<div class="loading-bar"></div>;
+=======
+		<center id="uga">
+			<ons-button modifier="large" style="box-shadow:  0px 0px 30px -3px  rgba(0,0,0,0.58)" onclick="PaginaComentar()">NUEVO COMENTARIO</ons-button>
+		</center>
+            <ons-card>
+			<br>
+			<span>asunto: </span><span id="omg"></span>
+			<div class="title" id="titulo" >
+			</div>
+			<div class="content">
+			<div>
+			<span>descripcion: </span><textarea id="omgDes" class="textarea textarea--transparent" rows="3" placeholder="Descripción de la publicación"></textarea>
+			</div>
+			<br>
+			<img class="list-item__thumbnail" src="imagen\usuario.png" />
+			<span>nombre: </span><span id="omgNom"></span>
+			<br>
+			<span>id_publicacion: </span><span id="omgID"></span>
+			<br>
+			<div>
+				<ons-button><ons-icon icon="ion-thumbsup"></ons-icon></ons-button>
+				<ons-button><ons-icon icon="ion-share"></ons-icon></ons-button>
+			</div>
+			</div>
+			</ons-card>
+			
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
 			<ons-card>
 			<ons-list id="demo1"></ons-list>
 			
@@ -959,7 +1396,11 @@
 	
 	<ons-template id="Comentario">
         <ons-page>
+<<<<<<< HEAD
             <ons-toolbar style="background:#FFA860;box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)">
+=======
+            <ons-toolbar style="box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)">
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
                 <div class="left">
                     <ons-toolbar-button onclick="fn.open()">
                         <ons-icon icon="md-menu"></ons-icon>
@@ -972,6 +1413,7 @@
 
             <ons-card>
 			<center>
+<<<<<<< HEAD
 			<br>
 			<span>id_publicacion: </span><span id="wau"></span>
 			<br>
@@ -994,6 +1436,17 @@
 			<ons-button modifier="large" style="background:#FFA860;box-shadow:  0px 0px 25px -5px  rgba(0,0,0,0.58)" onclick="Comentar()">PUBLICAR</ons-button>
 			</center>
 			<div class="loading-bar"></div>;
+=======
+			<span>id_publicacion: </span><span id="wau"></span>
+			<span>nombreUDG: </span><span id="guau"></span>
+			<div>
+			Comentario: <ons-input id="comentario1" type="text" modifier="underbar"></ons-input>
+			</div>
+			<br>
+			<br>
+			<ons-button modifier="large" onclick="Comentar()">PUBLICAR</ons-button>
+			</center>
+>>>>>>> d9b027d6a9e1514b1b4f425227acabd8cc708067
 			</ons-card>
         </ons-page>
     </ons-template>
